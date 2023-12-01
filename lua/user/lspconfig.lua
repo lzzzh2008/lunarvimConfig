@@ -9,6 +9,7 @@ nvim_lsp.tsserver.setup {
   cmd = { "typescript-language-server", "--stdio" }
 }
 
+-- volar
 nvim_lsp.volar.setup{
   filetypes = {'vue'},
   cmd = { "vls" },
@@ -53,9 +54,10 @@ nvim_lsp.volar.setup{
         },
         useWorkspaceDependencies = false,
         validation = {
-          script = true,
+          script = false,
           style = true,
-          template = true
+          template = true,
+          interpolation = false,
         },
         experimental = {
           templateInterpolationService = true
@@ -65,7 +67,25 @@ nvim_lsp.volar.setup{
   }
 }
 -- lint
-nvim_lsp.eslint.setup({})
+nvim_lsp.eslint.setup({
+  bin = 'eslint', -- or `eslint_d`
+  code_actions = {
+    enable = true,
+    apply_on_save = {
+      enable = false,
+      types = { "directive", "problem", "suggestion", "layout" },
+    },
+    disable_rule_comment = {
+      enable = true,
+      location = "separate_line", -- or `same_line`
+    },
+  },
+  diagnostics = {
+    enable = true,
+    report_unused_disable_directives = false,
+    run_on = "type", -- or `save`
+  },
+})
 
 -- prettier
 local formatters = require "lvim.lsp.null-ls.formatters"
