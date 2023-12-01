@@ -3,7 +3,14 @@ lvim.plugins = {
   "opalmay/vim-smoothie",
   "windwp/nvim-ts-autotag",
   "kylechui/nvim-surround",
-  "SUSTech-data/wildfire.nvim",
+  {
+      "sustech-data/wildfire.nvim",
+      event = "VeryLazy",
+      dependencies = { "nvim-treesitter/nvim-treesitter" },
+      config = function()
+          require("wildfire").setup()
+      end,
+  },
   "f-person/git-blame.nvim",
   "petertriho/nvim-scrollbar",
   "sainnhe/everforest",
