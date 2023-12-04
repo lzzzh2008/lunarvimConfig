@@ -6,7 +6,7 @@ if (not status) then return end
 -- TypeScript
 nvim_lsp.tsserver.setup {
   filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript",},
-  cmd = { "typescript-language-server", "--stdio" }
+  cmd = { "typescript-language-server", "--stdio" },
 }
 
 -- volar

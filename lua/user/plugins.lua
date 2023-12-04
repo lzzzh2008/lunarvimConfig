@@ -4,12 +4,12 @@ lvim.plugins = {
   "windwp/nvim-ts-autotag",
   "kylechui/nvim-surround",
   {
-      "sustech-data/wildfire.nvim",
-      event = "VeryLazy",
-      dependencies = { "nvim-treesitter/nvim-treesitter" },
-      config = function()
-          require("wildfire").setup()
-      end,
+    "sustech-data/wildfire.nvim",
+    event = "VeryLazy",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    config = function()
+      require("wildfire").setup()
+    end,
   },
   "f-person/git-blame.nvim",
   "petertriho/nvim-scrollbar",
@@ -26,4 +26,3 @@ lvim.plugins = {
   "mhartington/formatter.nvim",
   { "christianchiarulli/telescope-tabs", branch = "chris" },
 }
-
