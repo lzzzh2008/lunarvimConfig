@@ -136,7 +136,10 @@ lvim.builtin.telescope.pickers.live_grep = {
   theme = "dropdown",
   previewer = true,
 }
-
+lvim.builtin.telescope.pickers.git_files = {
+  theme = "dropdown",
+  previewer = true,
+}
 lvim.builtin.telescope.pickers.grep_string = {
   theme = "dropdown",
   previewer = true,
@@ -183,6 +186,14 @@ lvim.builtin.telescope.pickers.lsp_implementations = {
 }
 
 lvim.builtin.telescope.defaults.selection_caret = "  "
+
+lvim.builtin.telescope.defaults.layout_config = {
+    vertical = {
+      preview_cutoff = 100,
+      preview_width = 0.5,
+      width = 0.5,
+    },
+}
 
 require("telescope-tabs").setup {
   show_preview = true,

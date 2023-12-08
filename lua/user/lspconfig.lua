@@ -3,6 +3,8 @@
 local status, nvim_lsp = pcall(require, "lspconfig")
 if (not status) then return end
 
+local keymap = vim.keymap.set
+
 -- TypeScript
 nvim_lsp.tsserver.setup {
   filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript",},
@@ -11,7 +13,7 @@ nvim_lsp.tsserver.setup {
 
 -- volar
 nvim_lsp.volar.setup{
-  filetypes = {'vue'},
+  filetypes = {'vue', 'jsx', 'tsx'},
   cmd = { "vls" },
   root_dir = nvim_lsp.util.root_pattern("package.json", "vue.config.js", ".git"),
   init_options = {
@@ -68,7 +70,7 @@ nvim_lsp.volar.setup{
 }
 -- lint
 nvim_lsp.eslint.setup({
-  bin = 'eslint', -- or `eslint_d`
+  bin = 'eslint_d', -- or `eslint_d`
   code_actions = {
     enable = true,
     apply_on_save = {
@@ -85,6 +87,19 @@ nvim_lsp.eslint.setup({
     report_unused_disable_directives = false,
     run_on = "type", -- or `save`
   },
+})
+
+require('lint').linters_by_ft = {
+  javascript = { 'eslint_d' },
+  typescript = { 'eslint_d' },
+  javascriptreact = { 'eslint_d' },
+  typescriptreact = { 'eslint_d' },
+  vue = { 'eslint_d' },
+}
+vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
+  callback = function()
+    require('lint').try_lint()
+  end,
 })
 
 -- prettier
@@ -105,4 +120,3 @@ formatters.setup {
     },
   },
 }
-
