@@ -120,3 +120,20 @@ formatters.setup {
     },
   },
 }
+
+-- lspsaga
+-- local builtin = require 'telescope.builtin'
+-- require('lspsaga').setup {
+--   ui = {
+--     border = 'rounded',
+--   },
+-- }
+-- keymap('n', '<leader>o', '<cmd>Lspsaga outline<cr>')
+-- keymap('n', 'gd', '<cmd>Lspsaga goto_definition<cr>')
+-- keymap('n', '<space>r', '<cmd>Lspsaga rename<cr>')
+-- keymap('n', 'gr', builtin.lsp_references)
+-- keymap(
+--   { 'n', 'v' },
+--   '<space>la',
+--   '<cmd>Lspsaga cade_action<cr>'
+-- )

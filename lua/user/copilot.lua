@@ -1,4 +1,4 @@
---vim.g.copilot_node_command = "/Users/zzh/.nvm/versions/node/v18.18.2/bin/node"
+vim.g.copilot_node_command = "/Users/zzh/.nvm/versions/node/v18.18.2/bin/node"
 local ok, copilot = pcall(require, "copilot")
 if not ok then
   return
